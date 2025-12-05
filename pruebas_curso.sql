@@ -24,11 +24,11 @@ USE `pruebas_curso`;
 DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE IF NOT EXISTS `usuario` (
   `id_usuario` int NOT NULL AUTO_INCREMENT,
-  `email` text,
-  `contrasena` text,
+  `email` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `contrasena` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `locked` int DEFAULT NULL,
   `failed_attempts` int DEFAULT NULL,
-  `token` text,
+  `token` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
