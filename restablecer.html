@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DondeMacrePTY</title>
+  <link rel="stylesheet" href="src/css/output.css" />
+</head>
+
+<body class="h-screen">
+  <nav class="fixed w-full bg-black p-2">
+    <div class="mx-auto flex w-full place-content-end text-center">
+      <p class="select-none font-semibold text-white">PRUEBAS DE CALIDAD</p>
+    </div>
+  </nav>
+  <section class="grid h-full grid-cols-2 space-x-0">
+    <div class="place-selft-start w-full"></div>
+    <div class="w-full bg-black/80">
+      <div class="flex min-h-full flex-col items-center justify-center space-y-5 text-white">
+        <a href="./index.html"
+          class="fixed right-5 top-12 h-10 w-10 content-center text-center text-2xl hover:rounded-full hover:bg-stone-800">X</a>
+        <h1 class="text-3xl font-bold">Restablecer Contraseña</h1>
+        <form class="flex flex-col space-y-3" id="loginForm">
+
+          <input
+            class="w-96 rounded-3xl bg-zinc-700/50 px-6 py-2 hover:bg-zinc-500/50 focus:outline-offset-2 focus:outline-red-300"
+            id="email" type="text" placeholder="Correo" required />
+          <button
+            class="w-96 rounded-3xl bg-white px-6 py-2 font-bold text-black transition-colors hover:bg-slate-300 focus:outline-offset-2 focus:outline-white"
+            type="submit">
+            Confirmar contraseña
+          </button>
+        </form>
+      </div>
+    </div>
+    <img class="fixed -z-10 h-screen w-full" src="./assets/img/wallpaper1.png" alt="" />
+  </section>
+  <script src="./assets/js/login.js"></script>
+</body>
+
+</html>
