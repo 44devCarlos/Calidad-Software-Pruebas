@@ -1,10 +1,12 @@
-import {Router} from 'express';
-import {ControladorAuth} from '../controllers/authController.js';
+import { Router } from "express";
+import { ControladorAuth } from "../controllers/auth.js";
 
-export const crearAuthRouter = ({ControladorAuth}) => {
-    const router = Router();
+export const crearAuthRouter = ({ authModel }) => {
+	const router = Router();
 
-    const authControlador = new ControladorAuth({ControladorAuth});
+	const authControlador = new ControladorAuth({ authModel });
 
-    router.post('/login', authControlador);
-}
+	router.post("/login", authControlador.loguearUsuarios);
+
+	return router;
+};
