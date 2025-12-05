@@ -17,22 +17,22 @@
 
 -- Dumping database structure for pruebas_curso
 DROP DATABASE IF EXISTS `pruebas_curso`;
-CREATE DATABASE IF NOT EXISTS `pruebas_curso` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE IF NOT EXISTS `pruebas_curso` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `pruebas_curso`;
 
--- Dumping structure for table pruebas_curso.usuario
-DROP TABLE IF EXISTS `usuario`;
-CREATE TABLE IF NOT EXISTS `usuario` (
+-- Dumping structure for table pruebas_curso.usuarios
+DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE IF NOT EXISTS `usuarios` (
   `id_usuario` int NOT NULL AUTO_INCREMENT,
-  `email` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `contrasena` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `email` text COLLATE utf8mb4_general_ci,
+  `contrasena` text COLLATE utf8mb4_general_ci,
   `locked` int DEFAULT NULL,
-  `failed_attempts` int DEFAULT NULL,
-  `token` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `failed_attempt` int DEFAULT NULL,
+  `token` text COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table pruebas_curso.usuario: ~0 rows (approximately)
+-- Dumping data for table pruebas_curso.usuarios: ~0 rows (approximately)
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
