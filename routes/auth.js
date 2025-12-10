@@ -7,6 +7,9 @@ export const crearAuthRouter = ({ authModel }) => {
 	const authControlador = new ControladorAuth({ authModel });
 
 	router.post("/login", authControlador.loguearUsuarios);
+	router.post("/recover", authControlador.solicitarRecuperacion);
+	router.post("/reset-password", authControlador.resetearContrasena);
+	router.post("/logout", authControlador.logoutUsuarios);
 
 	return router;
 };

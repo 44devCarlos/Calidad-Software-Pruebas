@@ -6,7 +6,7 @@ export class AuthModel {
 			"Call consultar_usuario(?)",
 			[email]
 		);
-		return usuario[0];
+		return usuario[0][0];
 	}
 
 	static async actualizarUsuario(usuario) {
@@ -19,6 +19,30 @@ export class AuthModel {
 				usuario.locked,
 				usuario.failed_attempt,
 				usuario.token,
+			]
+		);
+		return usuarioActualizado[0];
+	}
+
+	static async guardarTokenRecuperacion({ id_usuario, token_reset, token_expira }) {
+		const [resultado, info] = await connection.execute(
+			"Call guardar_token_recuperacion(?, ?, ?)",
+			[id_usuario, token_reset, token_expira]
+		);
+		return resultado;
+	}
+
+	static async actualizarUsuarioCompleto(usuario) {
+		const [usuarioActualizado, info] = await connection.execute(
+			"Call actualizar_usuario_completo(?, ?, ?, ?, ?, ?, ?)",
+			[
+				usuario.id_usuario,
+				usuario.contrasena,
+				usuario.locked,
+				usuario.failed_attempts,
+				usuario.token,
+				usuario.token_reset,
+				usuario.token_expira,
 			]
 		);
 		return usuarioActualizado[0];
