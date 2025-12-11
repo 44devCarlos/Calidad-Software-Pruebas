@@ -1,0 +1,5 @@
+POST http://localhost:3305/auth/logout
+Content-Type: application/json
+Authorization: Bearer <token_obtenido_al_iniciar_sesion>
+
+{}

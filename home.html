@@ -32,7 +32,7 @@
         <!-- Info usuario -->
         <div class=" bg-zinc-700/50 px-8 py-5 w-96 text-center space-y-2">
           <p class="text-lg font-semibold">Usuario autenticado:</p>
-          <p class="font-mono">usuario@example.com</p>
+          <p id="userEmail" class="font-mono">usuario@example.com</p>
         </div>
 
         <!-- Estado -->
@@ -45,7 +45,14 @@
 
           <button
             class="w-96 rounded-3xl bg-white px-6 py-2 font-bold text-black transition-colors hover:bg-slate-300 focus:outline-offset-2 focus:outline-white"
-            id="logoutBtn">
+            id="logoutBtn" onclick="logout()">
             <a href="./login.html"> Cerrar Sesión</a>
           </button>
         </div>
+      </div>
+    </div>
+  </section>
+</body>
+<script src="src/js/home.js"></script>
+
+</html>

@@ -24,7 +24,11 @@ export class AuthModel {
 		return usuarioActualizado[0];
 	}
 
-	static async guardarTokenRecuperacion({ id_usuario, token_reset, token_expira }) {
+	static async guardarTokenRecuperacion({
+		id_usuario,
+		token_reset,
+		token_expira,
+	}) {
 		const [resultado, info] = await connection.execute(
 			"Call guardar_token_recuperacion(?, ?, ?)",
 			[id_usuario, token_reset, token_expira]
@@ -46,5 +50,13 @@ export class AuthModel {
 			]
 		);
 		return usuarioActualizado[0];
+	}
+
+	static async actualizarTokenLogout(usuario) {
+		const [resultado, info] = await connection.execute(
+			"Call actualizar_token_logout(?)",
+			[usuario.id_usuario]
+		);
+		return resultado;
 	}
 }

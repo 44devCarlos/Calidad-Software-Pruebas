@@ -59,7 +59,7 @@ export class ControladorAuth {
 		// 7. Respuesta exitosa
 		return res.status(200).json({
 			message: "Login exitoso",
-			updatedUser,
+			updatedUser: { token: usuario.token, email: usuario.email },
 		});
 	};
 
@@ -163,5 +163,49 @@ export class ControladorAuth {
 		}
 	};
 
-	logoutUsuarios = async (req, res) => {};
+	logoutUsuarios = async (req, res) => {
+		try {
+			// 1. Obtener el token del header
+			const authHeader = req.headers.authorization;
+
+			if (!authHeader) {
+				return res.status(401).json({ message: "Token requerido" });
+			}
+
+			const token = authHeader.split(" ")[1];
+
+			if (!token) {
+				return res.status(401).json({ message: "Token inválido" });
+			}
+
+			// 2. Verificar el token para extraer email / id
+			const data = jwt.verify(token, process.env.SECRET);
+
+			// 3. Buscar usuario por email
+			const usuario = await this.authModel.consultarUsuario({
+				email: data.email,
+			});
+
+			if (!usuario) {
+				return res
+					.status(404)
+					.json({ message: "Usuario no encontrado" });
+			}
+
+			// 4. Invalidar token (borrarlo de BD)
+			usuario.token = null;
+
+			await this.authModel.actualizarTokenLogout(usuario);
+
+			// 5. Respuesta OK
+			return res.status(200).json({
+				message: "Logout OK",
+			});
+		} catch (error) {
+			console.error("Error en logout:", error);
+			return res
+				.status(500)
+				.json({ message: "Error interno del servidor" });
+		}
+	};
 }
