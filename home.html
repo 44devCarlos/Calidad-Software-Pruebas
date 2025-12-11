@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DondeMacrePTY – Panel</title>
+  <link rel="stylesheet" href="src/css/output.css" />
+</head>
+
+<body class="h-screen">
+
+  <!-- NAV -->
+  <nav class="fixed w-full bg-black p-2">
+    <div class="mx-auto flex w-full place-content-end text-center">
+      <p class="select-none font-semibold text-white">PRUEBAS DE CALIDAD</p>
+    </div>
+  </nav>
+
+  <!-- MAIN SPLIT -->
+  <section class="grid h-full grid-cols-2 space-x-0">
+    <div class="place-selft-start w-full"></div>
+
+    <!-- PANEL POST-LOGIN -->
+    <div class="w-full bg-black/80">
+      <div class="flex min-h-full flex-col items-center justify-center space-y-6 text-white">
+
+        <!-- Bienvenida -->
+        <h1 class="text-3xl font-bold">Bienvenido</h1>
+        <p class="text-lg text-center opacity-80">Has iniciado sesión correctamente.</p>
+
+        <!-- Info usuario -->
+        <div class=" bg-zinc-700/50 px-8 py-5 w-96 text-center space-y-2">
+          <p class="text-lg font-semibold">Usuario autenticado:</p>
+          <p class="font-mono">usuario@example.com</p>
+        </div>
+
+        <!-- Estado -->
+        <div class=" bg-green-600/40 px-8 py-4 w-96 text-center">
+          <p class="font-semibold">Estado: <span class="text-green-300">Autenticado</span></p>
+        </div>
+
+        <!-- Botones -->
+        <div class="flex flex-col space-y-3 mt-4">
+
+          <button
+            class="w-96 rounded-3xl bg-white px-6 py-2 font-bold text-black transition-colors hover:bg-slate-300 focus:outline-offset-2 focus:outline-white"
+            id="logoutBtn">
+            <a href="./login.html"> Cerrar Sesión</a>
+          </button>
+        </div>

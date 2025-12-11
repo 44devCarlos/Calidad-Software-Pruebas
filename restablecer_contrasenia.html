@@ -14,26 +14,44 @@
       <p class="select-none font-semibold text-white">PRUEBAS DE CALIDAD</p>
     </div>
   </nav>
+
   <section class="grid h-full grid-cols-2 space-x-0">
-    <div class="place-selft-start w-full"></div>
+    <div class="place-self-start w-full"></div>
+
     <div class="w-full bg-black/80">
       <div class="flex min-h-full flex-col items-center justify-center space-y-5 text-white">
-        <h1 class="text-3xl font-bold">Restablecer Cuenta</h1>
-        <form class="flex flex-col space-y-3" id="restablecercuentaForm">
+        <h1 class="text-3xl font-bold">Restablecer Contraseña</h1>
+
+        <form class="flex flex-col space-y-3" id="resetPassForm">
+
           <input
             class="w-96 rounded-3xl bg-zinc-700/50 px-6 py-2 hover:bg-zinc-500/50 focus:outline-offset-2 focus:outline-red-300"
-            id="email" type="text" placeholder="Correo" required />
+            id="pass1"
+            type="password"
+            placeholder="Ingresar Contraseña"
+            required />
+
+          <input
+            class="w-96 rounded-3xl bg-zinc-700/50 px-6 py-2 hover:bg-zinc-500/50 focus:outline-offset-2 focus:outline-red-300"
+            id="pass2"
+            type="password"
+            placeholder="Repetir Contraseña"
+            required />
+
           <button
             class="w-96 rounded-3xl bg-white px-6 py-2 font-bold text-black transition-colors hover:bg-slate-300 focus:outline-offset-2 focus:outline-white"
             type="submit">
             Continuar
           </button>
+
         </form>
       </div>
     </div>
+
     <img class="fixed -z-10 h-screen w-full" src="./assets/img/wallpaper1.png" alt="" />
   </section>
-  <script src="src/js/restablecer.js"></script>
+
+  <script src="src/js/restablecer_contrasenia.js"></script> <!-- este sí -->
 </body>
 
 </html>
